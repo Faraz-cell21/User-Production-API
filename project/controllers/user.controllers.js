@@ -27,3 +27,18 @@ export const createUser = asyncHandler(async (req, res) => {
     const user = await User.create({ name, email, age });
     res.status(201).json({ success: true, message: "User created", user})
 })
+
+// PUT user
+export const putUser = asyncHandler(async (req, res) => {
+    if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        throw new ErrorResponse("Invalid User ID", 400);
+    };
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true,
+    });
+    if(!user) {
+        throw new ErrorResponse("User not found", 404);
+    };
+    res.status(200).json({ success: true, message: "User updated", task});
+});
