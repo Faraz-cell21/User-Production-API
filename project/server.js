@@ -25,3 +25,5 @@ const startServer = async () => {
         console.log("Server Failed to start: ", err)
     }
 }
+
+startServer();
