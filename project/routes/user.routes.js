@@ -9,5 +9,6 @@ router.get("/", getAllUsers);
 router.get("/:id", getOneUser);
 router.post("/", createUserValidator, validate, createUser);
 router.put("/:id", updateUserValidator, validate, putUser);
+router.delete("/:id", deleteUser);
 
 export default router;
