@@ -6,7 +6,7 @@ export const createUserValidator = [
         .isLength({min: 3}).withMessage("Name must be at least 3 characters long"),
     body("email")
         .notEmpty().withMessage("Email is required"),
-    body(age)
+    body("age")
         .notEmpty().withMessage("Age must not be empty")
         .isLength({min: 1}).withMessage("Age must be greater than 0"),
 ];
@@ -17,7 +17,7 @@ export const updateUserValidator = [
         .isLength({min: 3}).withMessage("Name must be at least 3 characters long"),
     body("email")
         .optional(),
-    body(age)
+    body("age")
         .optional()
         .isLength({min: 1}).withMessage("Age must be greater than 0"),
 ];
