@@ -5,4 +5,8 @@ import { validate } from "../middlewares/validate.js";
 
 const router = Router();
 
+router.get("/", getAllUsers);
+router.get("/:id", getOneUser);
+router.post("/", createUserValidator, validate, createUser)
+
 export default router;
